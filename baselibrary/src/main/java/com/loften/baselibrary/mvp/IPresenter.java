@@ -1,22 +1,23 @@
 package com.loften.baselibrary.mvp;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleObserver;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.OnLifecycleEvent;
+import io.reactivex.disposables.Disposable;
 
-public interface IPresenter extends LifecycleObserver{
+public interface IPresenter<T>{
 
+    /**
+     * presenter绑定view生命周期
+     */
+    void onCreate();
 
-    void setLifecycleOwner(LifecycleOwner lifecycleOwner);
+    void attachView(T mvpView);
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    void onCreate(LifecycleOwner owner);
+    void detachView();
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    void onDestroy(LifecycleOwner owner);
+    void onDestroy();
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
-    void onLifecycleChanged(LifecycleOwner owner,
-                            Lifecycle.Event event);
+    /**
+     * rxjava网络请求添加统一管理
+     */
+    void addDisposable(Disposable subscription);
+
 }

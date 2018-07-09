@@ -39,9 +39,6 @@ dependencies {
     api 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     api 'io.reactivex.rxjava2:rxjava:2.1.16'
     api 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    //autodispose绑定rxjava生命周期
-    api 'com.uber.autodispose:autodispose:0.8.0'
-    api 'com.uber.autodispose:autodispose-android-archcomponents:0.8.0'
     //图片加载
     api 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'

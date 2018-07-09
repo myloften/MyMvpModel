@@ -9,6 +9,7 @@ public class App extends BaseApp{
     public static App getInstance(){
         return instance;
     }
+
     @Override
     public void onCreate() {
         super.onCreate();
