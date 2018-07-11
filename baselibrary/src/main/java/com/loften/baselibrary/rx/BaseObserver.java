@@ -1,5 +1,7 @@
 package com.loften.baselibrary.rx;
 
+import com.loften.baselibrary.data.protocol.ExceptionHandle;
+
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -19,7 +21,7 @@ public abstract class BaseObserver<T> implements Observer<T> {
 
     @Override
     public void onError(Throwable e) {
-
+        error(ExceptionHandle.handleException(e));
     }
 
     @Override
@@ -30,4 +32,6 @@ public abstract class BaseObserver<T> implements Observer<T> {
     public abstract void call(T t);
 
     public abstract void addDispos(Disposable d);
+
+    public abstract void error(ExceptionHandle.ResponeThrowable e);
 }

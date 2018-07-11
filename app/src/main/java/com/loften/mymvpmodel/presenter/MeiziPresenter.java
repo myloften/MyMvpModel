@@ -1,5 +1,6 @@
 package com.loften.mymvpmodel.presenter;
 
+import com.loften.baselibrary.data.protocol.ExceptionHandle;
 import com.loften.baselibrary.mvp.BasePresenter;
 import com.loften.baselibrary.rx.BaseObserver;
 import com.loften.mymvpmodel.contract.MeiziContract;
@@ -37,11 +38,11 @@ public class MeiziPresenter extends BasePresenter<MeiziContract.View> implements
             }
 
             @Override
-            public void onError(Throwable e) {
-                super.onError(e);
-                mView.showToast(e.getMessage());
+            public void error(ExceptionHandle.ResponeThrowable e) {
+                mView.showToast(e.message);
                 mView.hideLoading();
             }
+
         });
 
     }
